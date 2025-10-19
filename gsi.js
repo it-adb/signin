@@ -7,7 +7,7 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js
    
 await addCSSInHead("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
    
-const url="https://asia-southeast2-io-adb.cloudfunctions.net/gocroot/auth/users";
+const url="https://asia-southeast2-io-adb.cloudfunctions.net/gocroot/auth/google";
    
 const client_id="657221014041-bhahp3aeh0p3tdibo0td4kkpevcmsb4g.apps.googleusercontent.com";
    
@@ -46,7 +46,7 @@ async function appendGoogleSignin(client_id, target_url) {
 async function gSignIn(response, target_url) {
     try {
         const gtoken = { token: response.credential };
-        await postJSON(target_url, "login", getCookie("login"), gtoken, responsePostFunction);
+        await postJSON(target_url, "token", response.credential, gtoken, responsePostFunction);
     } catch (error) {
         console.error("Network or JSON parsing error:", error);
         Swal.fire({
