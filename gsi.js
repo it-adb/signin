@@ -60,7 +60,7 @@ async function gSignIn(response, target_url) {
 function responsePostFunction(response) {
     if (response.status === 200 && response.data) {
         console.log(response.data);
-        setCookieWithExpireHour('login',response.data.token,18);
+        setCookieWithExpireHour('token',response.data.token,18);
         redirect("/dashboard");
     } else {
         console.error("Login failed:", response.data?.message || "Unknown error");
