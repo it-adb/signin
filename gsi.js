@@ -63,11 +63,11 @@ function responsePostFunction(response) {
         setCookieWithExpireHour('token',response.data.token,18);
         redirect("/dashboard");
     } else {
-        console.error("Login failed:", response.data?.message || "Unknown error");
+        console.error("Login failed: ", response.data?.error || "Unknown error");
         Swal.fire({
             icon: "error",
             title: "Login Failed",
-            text: response.data?.message || "Anda belum terdaftar dengan login google, silahkan tap atau scan qr dahulu untuk pendaftaran.",
+            text: response.data?.error || "Anda belum terdaftar dengan login google, silahkan tap atau scan qr dahulu untuk pendaftaran.",
         }).then(() => {
             redirect("/login");
         });
