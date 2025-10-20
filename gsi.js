@@ -69,7 +69,8 @@ function responsePostFunction(response) {
             title: "Login Failed",
             text: response.data?.error || "Anda belum terdaftar dengan login google, silahkan tap atau scan qr dahulu untuk pendaftaran.",
         }).then(() => {
-            redirect("/login");
+            redirect("/signin");
         });
     }
+
 }
